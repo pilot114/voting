@@ -1,0 +1,39 @@
+#!/bin/bash
+
+##################################################
+#
+# Parses the parameters and sets variables equal to
+# their names to 'true'.
+#
+# Expected params:
+#   run || RUN
+#   build || BUILD
+#
+##################################################
+for arg in "$@"
+do
+    PARAMS=true
+    echo "Argument '$arg'"
+    eval $arg=true
+done
+
+root_folder=${PWD/bin/}
+echo "Root folder: '$root_folder'"
+
+# Build docker image.
+if [[ -z $PARAMS || ( $PARAMS  && ( $BUILDME || $buildme ) ) ]];
+then
+    echo "Building docker container."
+    docker build -t applicationserver $root_folder
+fi
+
+if [[ -z $PARAMS || ( $PARAMS  && ( $RUNME || $runme ) ) ]];
+then
+    echo "Running docker container"
+    # Run the docker image. Expose port 80. Use volume for our webapp so we dont have to rebuild for all changes.
+    docker run -t -i -p 81:80 -p 5436:5436 \
+        -v $root_folder/../ethereumDB/:/usr/src/ethereumDB/ \
+        -v $root_folder:/usr/src/applicationserver/ \
+	--env-file=$root_folder/bin/Variables.env \
+	applicationserver
+fi

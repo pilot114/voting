@@ -1,0 +1,49 @@
+#!/bin/bash
+
+##################################################
+# 
+# This script is the entry point for docker to start
+# our server.
+#
+##################################################
+
+postgres_version=12
+
+# Run the Django migrate command to setup database migrations
+echo "[docker_entrypoint] Should probably do some database stuff..."
+
+if [ ! -s /usr/src/onlineballotregulator/postgresDB ]; then
+
+    # Create the database folder in the docker container
+    mkdir /usr/src/onlineballotregulator/postgresDB
+    chown -R postgres:postgres /usr/src/onlineballotregulator/postgresDB
+
+    # Create the new database.
+    su postgres --command "/usr/lib/postgresql/$postgres_version/bin/initdb -D /usr/src/onlineballotregulator/postgresDB/"
+    su postgres --command "/usr/lib/postgresql/$postgres_version/bin/postgres -D /usr/src/onlineballotregulator/postgresDB/" &
+
+    sleep 5
+
+    # Create a postgres user
+    psql -U postgres -c "CREATE USER docker PASSWORD 'docker' CREATEDB CREATEROLE;"
+    su postgres --command 'createdb -O docker onlineballotregulator'
+else
+    echo "[docker_entrypoint] Database folder already exists... skipping creation..."
+    chown -R postgres:postgres /usr/src/onlineballotregulator/postgresDB
+    su postgres --command "/usr/lib/postgresql/$postgres_version/bin/postgres -D /usr/src/onlineballotregulator/postgresDB/" &
+fi
+
+# Setup our database
+python3 database/initial_setup.py
+
+# Start geth ethererum
+echo "[docker_entrypoint] Starting geth."
+source /usr/src/onlineballotregulator/ethereum/geth_start
+
+# Start the server
+echo "[docker_entrypoint] Starting onlineballotregulator server."
+python3 main.py
+
+# Shutdown postgres
+su postgres --command "pkill postgres"
+chmod -R o+rwx /usr/src/ethereumDB

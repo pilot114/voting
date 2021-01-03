@@ -1,0 +1,40 @@
+#!/bin/bash
+
+##################################################
+#
+# Parses the parameters and sets variables equal to
+# their names to 'true'.
+#
+# Expected params:
+#   run || RUN
+#   build || BUILD
+#
+##################################################
+for arg in "$@"
+do
+    PARAMS=true
+    echo "Argument '$arg'"
+    eval $arg=true
+done
+
+# Build docker image.
+if [[ -z $PARAMS || ( $PARAMS  && ( $BUILDME || $buildme ) ) ]];
+then
+
+    if [ -s ~/Programming/Blockchain-Voting-System/Programming/3_OnlineAccountVerifier/postgresDB ]; then
+        echo "postgresDB folder found.. deleting."
+        su --command "rm -rf /home/mattie432/Programming/Blockchain-Voting-System/Programming/3_OnlineAccountVerifier/postgresDB"
+    fi
+
+    echo "Building docker container."
+    docker build -t onlineaccountverifier ~/Programming/Blockchain-Voting-System/Programming/3_OnlineAccountVerifier/
+fi
+
+if [[ -z $PARAMS || ( $PARAMS  && ( $RUNME || $runme ) ) ]];
+then
+    echo "Running docker container"
+    # Run the docker image. Expose port 5433. Use volume for our webapp so we dont have to rebuild for all changes.
+    docker run -t -i -p 5435:5435  \
+        -v /home/mattie432/Programming/Blockchain-Voting-System/Programming/ethereumDB/:/usr/src/ethereumDB/ \
+        -v /home/mattie432/Programming/Blockchain-Voting-System/Programming/3_OnlineAccountVerifier/:/usr/src/onlineaccountverifier/ --env-file=/home/mattie432/Programming/Blockchain-Voting-System/Programming/3_OnlineAccountVerifier/bin/Variables.env onlineaccountverifier
+fi

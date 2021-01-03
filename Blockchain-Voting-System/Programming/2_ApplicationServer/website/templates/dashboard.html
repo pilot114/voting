@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}ETH Vote | Dashboard{% endblock %}
+{% block header %}ETH Vote | User Dashboard{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-13 col-md-offset-0">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Available Ballots</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover" style="width:100%">
+                            <tr>
+                                <th>User ID</th>
+                                <th>Ballot ID</th>
+                                <th>Time Registered</th>
+                                <th>Ballot Name</th>
+                                <th>Ballot Address</th>
+                                <th>Action</th>
+                            </tr>
+                            {% for row in registerd_ballots_list %}
+                            <tr style="line-height: 50px">
+                                <td> {{ row.user_id }}</td>
+                                <td> {{ row.ballot_id }}</td>
+                                <td> {{ row.timestamp }}</td>
+                                <td> {{ row.ballot_name }}</td>
+                                <td> <a href="https://ropsten.etherscan.io/address/{{ row.ballot_address }}">{{ row.ballot_address }}</a></td>
+                                <td>
+                                    {% if row.registered == False %}
+                                    <div style="line-height:50%">
+                                        <form action="/register_for_ballot/{{ row.ballot_id }}/" method="post">
+                                            {% csrf_token %}
+
+                                            <!-- The Modal -->
+                                            <div id="myModal_{{row.ballot_id}}" class="myModal modal ">
+
+                                              <!-- Modal content -->
+                                              <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                  <div class="myCenter">
+                                                        <p>Please confirm your password.</p>
+                                                        <input type="password" id="voter_password" name="register_password">
+                                                        <input class="btn btn-primary btn-sm " type="submit" value="Submit"  />
+                                                </div>
+                                              </div>
+
+                                            </div>
+
+
+
+                                            {% if row.requested != None %}
+                                                <input class="btn btn-primary btn-sm " value="Processing.." disabled />
+                                            {% else %}
+                                                <input class="btn btn-primary btn-sm " type="button" id="open_password_modal_{{row.ballot_id}}" modal_to_open="myModal_{{row.ballot_id}}" value="Register"  />
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                    {% else %}
+                                    <div style="line-height:50%">
+                                        <form action="/vote/{{ row.ballot_id }}/" method="get">
+                                                <input class="btn btn-primary btn-sm " type="submit" value="Vote"  />
+                                        </form>
+                                    </div>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+
+{% for row in registerd_ballots_list %}
+<script>
+
+
+
+$( document ).ready(function() {
+
+    console.log( "ready!" );
+
+    // Get the modal
+    var modal = document.getElementById('myModal_{{row.ballot_id}}');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("open_password_modal_{{row.ballot_id}}");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+
+</script>
+{% endfor %}
+
+{% endblock %}

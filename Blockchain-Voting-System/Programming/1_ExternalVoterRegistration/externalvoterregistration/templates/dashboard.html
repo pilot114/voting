@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}ETH Vote | Management{% endblock %}
+{% block header %}ETH Vote | Management{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-13 col-md-offset-0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Available Ballots</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover" style="width: 100%">
+                            <tr>
+                                <th>Ballot ID</th>
+                                <th>Time Registered</th>
+                                <th>Ballot Name</th>
+                                <th>Ballot Address</th>
+                            </tr>
+                            {% for row in registerd_ballots_list %}
+                            <tr style="line-height: 50px">
+                                <td> {{ row.ballot_id }}</td>
+                                <td> {{ row.timestamp }}</td>
+                                <td> {{ row.ballot_name }}</td>
+                                <td> <a href="https://ropsten.etherscan.io/address/{{ row.ballot_address }}">{{ row.ballot_address }}</a></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <div style="width:100%; ">
+                            <form class="form-inline" style="display: table;" action="/register_ballot/" method="get">
+                                {% csrf_token %}
+                                <!--<div class="form-group" style="display:table-cell; width:33%">-->
+                                    <!--<label for="ballot_id">Ballot ID:</label>-->
+                                    <!--<input style="width:100%" type="text" name="ballot_id">-->
+                                <!--</div>-->
+
+                                <div class="form-group" style="display:table-cell;; width:33%">
+                                    <label for="ballot_name">Ballot Name:</label>
+                                    <input style="width:100%" type="text" name="ballot_name">
+                                </div>
+                                <div class="form-group" style="display:table-cell;; width:33%">
+                                    <label for="ballot_options">Comma separated list of ballot options:</label>
+                                    <input style="width:90%" type="text" name="ballot_options">
+
+                                </div>
+                                <div class="form-group" style="display:table-cell;; width:33%">
+                                    <label for="ballot_end_date">Ballot end date:</label>
+                                    <input style="width:90%" type="date" name="ballot_end_date">
+
+                                </div>
+                                <div style="display:table-cell; width:100%">
+                                    <button type="submit" class="btn btn-sm" style="display:block;margin: 0 auto;">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-13 col-md-offset-0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Register New User</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" style="display: table;" action="/register_user/" method="get">
+                            {% csrf_token %}
+
+                            <div class="form-group" style="" >
+                                <label for="ballot_name">Select ballots to register user to:</label>
+
+                               <select multiple="multiple" id="my-select" name="my-select[]">
+                                {% for row in registerd_ballots_list %}
+                                  <option value='{{ row.ballot_id }}'>{{ row.ballot_id }} - {{ row.ballot_name }}</option>
+                                {% endfor %}
+                               </select>
+
+                                <input type="hidden" name="ballot_ids" id="ballot_ids"  />
+                            </div>
+
+                            <div style="display:table-cell; width:100%">
+                                <button type="submit" class="btn btn-sm" style="display:block;margin: 0 auto;">Register new user</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+         $(function(){
+            $('#my-select').multiSelect({
+
+              afterSelect: function(value, text){
+                var get_val = $("#ballot_ids").val();
+                var hidden_val = (get_val != "") ? get_val+"," : get_val;
+                $("#ballot_ids").val(hidden_val+""+value);
+              },
+
+
+              afterDeselect: function(value, text){
+                var get_val = $("#ballot_ids").val();
+                var new_val = get_val.replace(value, "");
+                $("#ballot_ids").val(new_val);
+              }
+            });
+
+          console.log("Setup complete")
+        });
+
+    </script>
+{% endblock %}
