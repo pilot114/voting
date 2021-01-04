@@ -36,31 +36,31 @@ services:
             my_net:
                 ipv4_address: 10.5.1.5
 
-#    onlineaccountverifier:
-#        build:
-#            # Where to look for the dockerfile to build the onlineaccountverifier image.
-#            context: 3_OnlineAccountVerifier/
-#            dockerfile: Dockerfile
-#        ports:
-#            - "127.0.0.1:5435:5435"
-#        env_file:
-#            - 3_OnlineAccountVerifier/bin/Variables.env
-#        environment:
-#            - TWISTED_BALLOTREGULATOR_IP=10.5.1.5
-#        working_dir:
-#              /usr/src/onlineaccountverifier/
-#        entrypoint:
-#              [ "bin/wait-for-it.sh", "10.5.1.5:5434", "--", "bin/docker_entrypoint" ]
-#        volumes:
-#            # Create local volume so we dont have to download blockchain every time.
-#            - ./ethereumDB/:/usr/src/ethereumDB/
-#            - ./3_OnlineAccountVerifier/:/usr/src/onlineaccountverifier/
-#        depends_on:
-#            - onlineballotregulator
-#        networks:
-#            my_net:
-#                ipv4_address: 10.5.1.4
-#
+    onlineaccountverifier:
+        build:
+            # Where to look for the dockerfile to build the onlineaccountverifier image.
+            context: 3_OnlineAccountVerifier/
+            dockerfile: Dockerfile
+        ports:
+            - "127.0.0.1:5435:5435"
+        env_file:
+            - 3_OnlineAccountVerifier/bin/Variables.env
+        environment:
+            - TWISTED_BALLOTREGULATOR_IP=10.5.1.5
+        working_dir:
+              /usr/src/onlineaccountverifier/
+        entrypoint:
+              [ "bin/wait-for-it.sh", "10.5.1.5:5434", "--", "bin/docker_entrypoint" ]
+        volumes:
+            # Create local volume so we dont have to download blockchain every time.
+            - ./ethereumDB/:/usr/src/ethereumDB/
+            - ./3_OnlineAccountVerifier/:/usr/src/onlineaccountverifier/
+        depends_on:
+            - onlineballotregulator
+        networks:
+            my_net:
+                ipv4_address: 10.5.1.4
+
 #    applicationserver:
 #        build:
 #            # Where to look for the dockerfile to build the applicaitonserver image.

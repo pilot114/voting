@@ -7,6 +7,8 @@ import pickle
 from twisted.internet.defer import inlineCallbacks, returnValue
 from onlineaccountverifier.network_commands import OnlineBallotRegulator_SearchBallotsAvailableForAllBallots
 from subprocess import call
+from twisted.enterprise.adbapi import ConnectionPool
+import time
 
 #Setup crochet
 setup()
@@ -88,7 +90,6 @@ def generate_ballot_keys():
             call(['openssl', 'rsa', '-in', check_path_private, '-outform', 'PEM', '-pubout', '-out', check_path_public])
 
 def main():
-
     # print the connection string we will use to connect
     print ("[initialSetup] Connecting to database\n"
            "    -> database:'%s' user:'%s' host:'%s'" % (postgres_database, postgres_user, postgres_host) )
@@ -122,17 +123,6 @@ def main():
     connection.commit()
 
     generate_ballot_keys()
-
-    #TODO remove testing data
-
-    # try:
-        # cursor.execute("INSERT INTO token_request (user_id, ballot_id, blind_token_hash) VALUES (2345, 4321, 'ThisIsABlineToken_1234_5431');")
-        # cursor.execute("INSERT INTO token_request (user_id, ballot_id, blind_token_hash) VALUES (2345, 5432, 'ThisIsABlineToken_2345_5432');")
-
-        # connection.commit()
-    # except:
-        # print( "[initialSetup] Error inserting test data." )
-
 
     cursor.close()
     connection.close()

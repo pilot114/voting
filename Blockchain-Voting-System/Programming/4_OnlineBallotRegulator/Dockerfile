@@ -4,7 +4,6 @@
 #
 ##################################################
 
-# Set the base image to ubuntu
 FROM ubuntu:focal
 
 # Do not buffer the output from stdout.

@@ -1,15 +1,14 @@
 ##################################################
 # 
 # Dockerfile to build the Application Server
-# Based on: Python 3.4
-# 
+#
 ##################################################
 
-# Set the base image to Python 3.4
-FROM python:3.5
+FROM ubuntu:focal
 
 # Do not buffer the output from stdout.
 ENV PYTHONUNBUFFERED 1
+ENV DEBIAN_FRONTEND noninteractive
 
 # Set the working directory.
 WORKDIR /usr/src/onlineaccountverifier/
@@ -26,7 +25,7 @@ RUN apt-get update && \
         libffi-dev \
         libssl-dev \
         libyaml-dev \
-        postgresql-9.4
+        postgresql-12
 
 # Install our server via pip
 RUN pip3 install .
