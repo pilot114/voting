@@ -1,7 +1,7 @@
 from random import randint, choice
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import login
+from django.contrib.auth import login
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render

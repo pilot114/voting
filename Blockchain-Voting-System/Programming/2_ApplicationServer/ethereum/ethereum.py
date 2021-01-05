@@ -4,17 +4,15 @@ import pickle
 import web3
 from twisted.internet import defer
 from twisted.internet import threads
-from web3 import Web3, KeepAliveRPCProvider, IPCProvider
+from web3 import Web3, IPCProvider
 from network import network_calls as Network
 
 class Ethereum():
-
     def __init__(self):
         self.work_dir = os.environ[ 'WORK_DIR' ]
         self.ballotregulator_ip = os.environ[ 'TWISTED_BALLOTREGULATOR_IP' ]
 
         self.web3 = Web3(IPCProvider("/usr/src/ethereumDB/testnet/geth.ipc"))
-        # self.web3 = Web3(KeepAliveRPCProvider( host=self.ballotregulator_ip))
         self.abi = Network.request_contract_abi().wait(5)
 
     def ballotInfo(self, ballot_address):

@@ -15,7 +15,7 @@ from network import network_exceptions as NetworkExceptions
 from ecdsa import SigningKey, SECP256k1
 import hashlib
 import sha3
-from web3 import Web3, KeepAliveRPCProvider, IPCProvider
+from web3 import Web3, IPCProvider
 import datetime
 from ethereum.ethereum import Ethereum
 
