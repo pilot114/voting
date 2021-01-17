@@ -1,0 +1,180 @@
+INFO [01-05|14:48:24.422] Starting Geth on Görli testnet... 
+INFO [01-05|14:48:24.422] Maximum peer count                       ETH=50 LES=0 total=50
+INFO [01-05|14:48:24.423] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+ERROR[01-05|14:48:24.423] Failed to enumerate USB devices          hub=ledger vendor=11415 failcount=1 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:24.423] Failed to enumerate USB devices          hub=trezor vendor=21324 failcount=1 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:24.423] Failed to enumerate USB devices          hub=trezor vendor=4617  failcount=1 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:24.423] Failed to enumerate USB devices          hub=ledger vendor=11415 failcount=2 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:24.423] Failed to enumerate USB devices          hub=trezor vendor=21324 failcount=2 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:24.423] Failed to enumerate USB devices          hub=trezor vendor=4617  failcount=2 err="failed to initialize libusb: libusb: unknown error [code -99]"
+INFO [01-05|14:48:24.423] Set global gas cap                       cap=25000000
+INFO [01-05|14:48:24.423] Allocated trie memory caches             clean=30.00MiB dirty=31.00MiB
+INFO [01-05|14:48:24.423] Allocated cache and file handles         database=/usr/src/ethereumDB/testnet/geth/chaindata cache=62.00MiB handles=524288
+INFO [01-05|14:48:24.548] Opened ancient database                  database=/usr/src/ethereumDB/testnet/geth/chaindata/ancient
+INFO [01-05|14:48:24.555] Persisted trie from memory database      nodes=361 size=51.17KiB time="726.7µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [01-05|14:48:24.556] Initialised chain configuration          config="{ChainID: 5 Homestead: 0 DAO: <nil> DAOSupport: true EIP150: 0 EIP155: 0 EIP158: 0 Byzantium: 0 Constantinople: 0 Petersburg: 0 Istanbul: 1561651, Muir Glacier: <nil>, YOLO v2: <nil>, Engine: clique}"
+INFO [01-05|14:48:24.556] Initialising Ethereum protocol           versions="[65 64 63]" network=5 dbversion=8
+INFO [01-05|14:48:24.557] Loaded most recent local header          number=0 hash="bf7e33…b88c1a" td=1 age=1y11mo2w
+INFO [01-05|14:48:24.557] Loaded most recent local full block      number=0 hash="bf7e33…b88c1a" td=1 age=1y11mo2w
+INFO [01-05|14:48:24.557] Loaded most recent local fast block      number=0 hash="bf7e33…b88c1a" td=1 age=1y11mo2w
+INFO [01-05|14:48:24.557] Loaded local transaction journal         transactions=0 dropped=0
+INFO [01-05|14:48:24.557] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|14:48:24.558] Allocated fast sync bloom                size=61.00MiB
+INFO [01-05|14:48:24.560] Starting peer-to-peer node               instance=Geth/v1.9.25-stable-e7872729/linux-amd64/go1.15.6
+INFO [01-05|14:48:24.572] Initialized fast sync bloom              items=361 errorrate=0.000 elapsed=10.617ms
+INFO [01-05|14:48:24.611] New local node record                    seq=22 id=e7a7080fa28b9b7f ip=127.0.0.1 udp=30303 tcp=30303
+INFO [01-05|14:48:24.612] IPC endpoint opened                      url=/usr/src/ethereumDB/testnet/geth.ipc
+INFO [01-05|14:48:24.616] Started P2P networking                   self=enode://35c758e91ff434f5827a4793c77cb3e7b2bf380036cec628ba46c68f688527cf00a1ac03a0c168bf662987141ae1c92e58fb10f11d9fa767eb214c02c4c3f078@127.0.0.1:30303
+ERROR[01-05|14:48:25.424] Failed to enumerate USB devices          hub=trezor vendor=4617  failcount=3 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:25.424] Failed to enumerate USB devices          hub=trezor vendor=21324 failcount=3 err="failed to initialize libusb: libusb: unknown error [code -99]"
+ERROR[01-05|14:48:25.424] Failed to enumerate USB devices          hub=ledger vendor=11415 failcount=3 err="failed to initialize libusb: libusb: unknown error [code -99]"
+INFO [01-05|14:48:25.926] Unlocked account                         address=0xED0f1624d31B6Dd2E16c6E20B2D16A33da713a47
+INFO [01-05|14:48:36.118] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|14:48:59.616] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|15:18:24.959] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|15:18:36.463] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|15:18:59.960] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|15:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|15:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|15:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.241ms
+INFO [01-05|15:48:24.863] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|15:48:36.367] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|15:48:59.864] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|16:18:25.316] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|16:18:36.820] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|16:19:00.316] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|16:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|16:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|16:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.271ms
+INFO [01-05|16:48:25.300] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|16:48:40.301] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|16:49:00.300] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|17:18:24.750] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|17:18:39.751] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|17:18:59.750] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|17:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|17:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|17:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.091ms
+INFO [01-05|17:48:25.167] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|17:48:36.671] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|17:49:00.167] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|18:18:25.033] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|18:18:40.034] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|18:19:00.033] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|18:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|18:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|18:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=2.962ms
+INFO [01-05|18:48:25.433] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|18:48:40.433] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|18:49:00.433] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|19:18:24.834] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|19:18:39.835] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|19:18:59.834] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|19:48:24.561] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|19:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|19:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.114ms
+INFO [01-05|19:48:25.194] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|19:48:36.698] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|19:49:00.195] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|20:18:25.141] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|20:18:36.645] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|20:19:00.141] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|20:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|20:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|20:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.317ms
+INFO [01-05|20:48:25.100] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|20:48:40.101] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|20:49:00.100] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|21:18:25.571] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|21:18:37.075] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|21:19:00.571] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|21:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|21:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|21:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.171ms
+INFO [01-05|21:48:25.465] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|21:48:40.466] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|21:49:00.466] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|22:18:24.931] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|22:18:34.933] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|22:18:59.932] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-05|22:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|22:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|22:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=2.977ms
+INFO [01-05|22:48:24.887] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|22:48:39.888] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|22:48:59.887] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|23:18:25.356] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|23:18:40.357] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|23:19:00.356] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-05|23:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-05|23:48:24.563] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-05|23:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.225ms
+INFO [01-05|23:48:24.742] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|23:48:34.744] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-05|23:48:59.743] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|00:18:24.709] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|00:18:39.710] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|00:18:59.710] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|00:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|00:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|00:48:24.566] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.608ms
+INFO [01-06|00:48:25.181] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|00:48:35.183] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|00:49:00.181] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|01:18:24.673] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|01:18:39.674] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|01:18:59.674] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|01:48:24.561] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|01:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|01:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.247ms
+INFO [01-06|01:48:25.142] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|01:48:40.143] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|01:49:00.143] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|02:18:25.621] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|02:18:40.622] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|02:19:00.621] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|02:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|02:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|02:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.004ms
+INFO [01-06|02:48:25.600] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|02:48:35.602] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|02:49:00.601] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|03:18:25.523] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|03:18:40.524] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|03:19:00.523] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|03:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|03:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|03:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.181ms
+INFO [01-06|03:48:24.990] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|03:48:34.991] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|03:48:59.990] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|04:18:24.963] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|04:18:39.964] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|04:18:59.963] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|04:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|04:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|04:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=2.860ms
+INFO [01-06|04:48:24.928] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|04:48:39.928] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|04:48:59.928] Looking for peers                        peercount=0 tried=1 static=0
+INFO [01-06|05:18:25.407] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|05:18:36.911] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|05:19:00.407] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|05:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|05:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|05:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.439ms
+INFO [01-06|05:48:25.359] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|05:48:36.862] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|05:49:00.359] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|06:18:24.824] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|06:18:36.328] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|06:18:59.825] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|06:48:24.562] Writing clean trie cache to disk         path=/usr/src/ethereumDB/testnet/geth/triecache threads=1
+INFO [01-06|06:48:24.562] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [01-06|06:48:24.565] Persisted the clean trie cache           path=/usr/src/ethereumDB/testnet/geth/triecache elapsed=3.248ms
+INFO [01-06|06:48:24.693] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|06:48:36.198] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|06:48:59.694] Looking for peers                        peercount=0 tried=2 static=0
+INFO [01-06|07:18:25.615] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|07:18:37.118] Looking for peers                        peercount=0 tried=0 static=0
+INFO [01-06|07:19:00.615] Looking for peers                        peercount=0 tried=2 static=0

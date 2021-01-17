@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+    my_net:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 10.5.2.0/24
+
+services:
+    postgres:
+        image: postgres:13-alpine
+        environment:
+            POSTGRES_PASSWORD: voting
+            POSTGRES_USER: voting
+            POSTGRES_DB: voting
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres/scripts:/docker-entrypoint-initdb.d
+            - ./postgres/data:/var/lib/postgresql/data
+        networks:
+            my_net:
+                ipv4_address: 10.5.2.6
+
